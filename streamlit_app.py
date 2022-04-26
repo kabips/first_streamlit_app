@@ -32,3 +32,8 @@ my_cur.execute("select * from fruit_load_list")
 my_data_row = my_cur.fetchall()
 streamlit.text("from snowflake:")
 streamlit.dataframe(my_data_row)
+
+# add fruit to list
+add_my_fruit = stream_lit.text_input('what fruit would you like to add?')
+streamlit.write('Thanks for adding ', add_my_fruit)
+my_cur.execute("insert into fruit_load_list values (?)", add_my_fruit)
